@@ -378,6 +378,27 @@
             }
           ]
         },
+        "cover_letter": {
+          "properties": {
+            "company": {
+              "default": null,
+              "description": "Recipient company name.",
+              "type": "string"
+            },
+            "body": {
+              "default": null,
+              "description": "Letter body.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "company",
+            "body"
+          ],
+          "title": "CoverLetter",
+          "type": "object",
+          "additionalProperties": false
+        },
         "section_order": {
           "default": null,
           "description": "The order of sections in the CV. The section title should be used.",
@@ -1689,6 +1710,7 @@
         "skills": null,
         "social_networks": null,
         "summary": null,
+        "cover_letter": null,
         "test_scores": null,
         "university_projects": null,
         "website": null,
