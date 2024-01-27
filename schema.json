@@ -294,6 +294,33 @@
       "type": "object",
       "additionalProperties": false
     },
+    "CoverLetter": {
+      "properties": {
+        "company": {
+          "default": null,
+          "description": "The name of the company where you send your application.",
+          "title": "Company",
+          "allOf": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "default": null,
+          "description": "The body of the cover.",
+          "title": "Letter body",
+          "allOf": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "title": "CoverLetter",
+      "type": "object",
+      "additionalProperties": false
+    },
     "CurriculumVitae": {
       "properties": {
         "name": {
@@ -379,25 +406,14 @@
           ]
         },
         "cover_letter": {
-          "properties": {
-            "company": {
-              "default": null,
-              "description": "Recipient company name.",
-              "type": "string"
-            },
-            "body": {
-              "default": null,
-              "description": "Letter body.",
-              "type": "string"
+          "default": null,
+          "description": "The cover letter.",
+          "title": "Cover Letter",
+          "allOf": [
+            {
+              "$ref": "#/$defs/CoverLetter"
             }
-          },
-          "required": [
-            "company",
-            "body"
-          ],
-          "title": "CoverLetter",
-          "type": "object",
-          "additionalProperties": false
+          ]
         },
         "section_order": {
           "default": null,
@@ -1690,6 +1706,7 @@
         "awards": null,
         "certificates": null,
         "connections": [],
+        "cover_letter": null,
         "custom_sections": null,
         "education": null,
         "email": null,
@@ -1710,7 +1727,6 @@
         "skills": null,
         "social_networks": null,
         "summary": null,
-        "cover_letter": null,
         "test_scores": null,
         "university_projects": null,
         "website": null,

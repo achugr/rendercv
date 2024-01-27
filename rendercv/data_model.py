@@ -274,7 +274,7 @@ def generate_json_schema(output_directory: str) -> str:
                 value["additionalProperties"] = False
 
                 # I don't want the docstrings in the schema, so remove them:
-                if "This class" in value["description"]:
+                if "description" in value and "This class" in value["description"]:
                     del value["description"]
 
                 # If a type is optional, then Pydantic sets the type to a list of two
@@ -1272,10 +1272,14 @@ Section = Annotated[
 class CoverLetter(BaseModel):
     company: Optional[LaTeXString] = Field(
         default=None,
-        title="Application company name",
+        title="Company",
         description="The name of the company where you send your application."
     )
-    body: Optional[LaTeXString] = None
+    body: Optional[LaTeXString] = Field(
+        default=None,
+        title="Letter body",
+        description="The body of the cover."
+    )
 
 
 class CurriculumVitae(BaseModel):
@@ -1316,8 +1320,8 @@ class CurriculumVitae(BaseModel):
     )
     cover_letter: Optional[CoverLetter] = Field(
         default=None,
-        time="Cover Letter",
-        description="The cover letter",
+        title="Cover Letter",
+        description="The cover letter.",
     )
     # Sections:
     section_order: Optional[list[str]] = Field(

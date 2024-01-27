@@ -284,7 +284,8 @@ def get_path_to_font_directory(font_name: str) -> str:
     return str(files("rendercv").joinpath("templates", "fonts", font_name))
 
 
-def render_template(cv: RenderCVDataModel, template: str, suffix: str, output_path: Optional[str] = None) -> str:
+def render_template(cv: RenderCVDataModel, template: str = "cv", suffix: str = "CV",
+                    output_path: Optional[str] = None) -> str:
     """Render the template using the given data.
 
     Args:
