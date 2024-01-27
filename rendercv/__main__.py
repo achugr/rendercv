@@ -132,11 +132,6 @@ def user_friendly_errors(func: Callable) -> Callable:
     return wrapper
 
 
-# def render_template(cv: RenderCVDataModel, output_path: Optional[str] = None) -> str:
-#     render_selected_template(cv, "cv", "CV", output_path)
-#     render_selected_template(cv, "cover_letter", "cover_letter", output_path)
-
-
 @app.command(help="Render CV")
 @user_friendly_errors
 def render_cv(
