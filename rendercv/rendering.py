@@ -289,6 +289,9 @@ def render_template(cv: RenderCVDataModel, template: str, suffix: str, output_pa
 
     Args:
         cv (RenderCVDataModel): The data to use to render the template.
+        template: template to render
+        suffix: result file suffix
+        output_path:
 
     Returns:
         str: The path to the rendered LaTeX file.
