@@ -155,6 +155,7 @@ def render_cv(
     output_latex_file = render_template(data, template="cv", suffix="CV")
     run_latex(output_latex_file)
 
+
 @app.command(help="Render cover letter")
 @user_friendly_errors
 def render_cover_letter(
@@ -163,7 +164,7 @@ def render_cover_letter(
         typer.Argument(help="Name of the YAML input file"),
     ]
 ):
-    """Generate a LaTeX CV from a YAML input file.
+    """Generate a LaTeX cover letter from a YAML input file.
 
     Args:
         input_file (str): Name of the YAML input file
@@ -173,7 +174,8 @@ def render_cover_letter(
     output_latex_file = render_template(data, template="cover_letter", suffix="cover_letter")
     run_latex(output_latex_file)
 
-@app.command(help="Render cover letter")
+
+@app.command(help="Render both CV and cover letter")
 @user_friendly_errors
 def render(
     input_file: Annotated[
@@ -183,6 +185,7 @@ def render(
 ):
     render_cv(input_file)
     render_cover_letter(input_file)
+
 
 @app.command(help="Generate a YAML input file to get started")
 @user_friendly_errors
