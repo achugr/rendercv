@@ -132,13 +132,6 @@ def user_friendly_errors(func: Callable) -> Callable:
     return wrapper
 
 
-def render(input_file: str, template: str, suffix: str) -> None:
-    file_path = os.path.abspath(input_file)
-    data = read_input_file(file_path)
-    output_latex_file = render_template(data, template=template, suffix=suffix)
-    run_latex(output_latex_file)
-
-
 @app.command(help="Render CV")
 @user_friendly_errors
 def render_cv(
@@ -152,7 +145,10 @@ def render_cv(
     Args:
         input_file (str): Name of the YAML input file
     """
-    render(input_file, template="cv", suffix="CV")
+    file_path = os.path.abspath(input_file)
+    data = read_input_file(file_path)
+    output_latex_file = render_template(data, template="cv", suffix="CV")
+    run_latex(output_latex_file)
 
 
 @app.command(help="Render cover letter")
@@ -168,12 +164,15 @@ def render_cover_letter(
     Args:
         input_file (str): Name of the YAML input file
     """
-    render(input_file, template="cover_letter", suffix="cover_letter")
+    file_path = os.path.abspath(input_file)
+    data = read_input_file(file_path)
+    output_latex_file = render_template(data, template="cover_letter", suffix="cover_letter")
+    run_latex(output_latex_file)
 
 
 @app.command(help="Render both CV and cover letter")
 @user_friendly_errors
-def render_all(
+def render(
         input_file: Annotated[
             str,
             typer.Argument(help="Name of the YAML input file"),

@@ -613,7 +613,7 @@ class Design(BaseModel):
         cv_template_directory = str(files("rendercv").joinpath("templates", theme, "cv"))
         cover_letter_template_directory = str(files("rendercv").joinpath("templates", theme, "cover_letter"))
         if f"{theme}.tex.j2" not in os.listdir(cv_template_directory) \
-                and f"{theme}.tex.j2" not in os.listdir(cover_letter_template_directory):
+                or f"{theme}.tex.j2" not in os.listdir(cover_letter_template_directory):
             raise ValueError(
                 f'The theme "{theme}" is not found in the "templates" directory.'
             )
