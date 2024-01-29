@@ -1,8 +1,8 @@
 [project]
-name = 'rendercv'
-description = 'LaTeX CV generator from a YAML/JSON file'
+name = 'rendercvcl'
+description = 'LaTeX CV and cover letter generator from a YAML/JSON file'
 version = '0.10'
-authors = [{ name = 'Sina Atalay' }]
+authors = [{ name = 'Sina Atalay' }, {name = 'Artemii Chugreev'}]
 requires-python = '>=3.10'
 readme = "README.md"
 dependencies = [
@@ -31,11 +31,11 @@ classifiers = [
 ]
 
 [project.urls]
-Documentation = 'https://sinaatalay.github.io/rendercv/'
-Source = 'https://github.com/sinaatalay/rendercv'
+Documentation = 'https://github.com/achugr/rendercvcl'
+Source = 'https://github.com/achugr/rendercvcl'
 
 [project.scripts]
-rendercv = 'rendercv.__main__:cli'
+rendercvcl = 'rendercvcl.__main__:cli'
 
 [project.optional-dependencies]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings-python"]
@@ -48,13 +48,13 @@ requires = ['setuptools>=68.2.2', "setuptools-scm>=8.0.4"]
 build-backend = 'setuptools.build_meta'
 
 [tool.setuptools]
-packages = ["rendercv"]
+packages = ["rendercvcl"]
 
 [tool.ruff]
 line-length = 88
 
 [tool.coverage.run]
-source = ['rendercv']
+source = ['rendercvcl']
 relative_files = true
 
 # [tool.coverage.report]

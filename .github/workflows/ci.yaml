@@ -60,7 +60,7 @@ jobs:
           touch .coveragerc
           echo "[run]" > .coveragerc
           echo "relative_files = True" >> .coveragerc
-          pytest --cov="rendercv" tests/
+          pytest --cov="rendercvcl" tests/
           mv .coverage .coverage.${{ matrix.python-version }}.${{ matrix.os }}
 
       - name: Store coverage files
