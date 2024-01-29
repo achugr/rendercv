@@ -303,7 +303,7 @@ def render_template(cv: RenderCVDataModel, template: str = "cv", suffix: str = "
     # create a Jinja2 environment:
     theme = cv.design.theme
     environment = Environment(
-        loader=PackageLoader("rendercv", os.path.join("templates", theme, template)),
+        loader=PackageLoader("rendercv", os.path.join("templates", theme)),
         trim_blocks=True,
         lstrip_blocks=True,
     )
@@ -331,7 +331,7 @@ def render_template(cv: RenderCVDataModel, template: str = "cv", suffix: str = "
     environment.filters["abbreviate_name"] = abbreviate_name
 
     # load the template:
-    template = environment.get_template(f"{theme}.tex.j2")
+    template = environment.get_template(os.path.join(template, f"{theme}.tex.j2"))
 
     design: Design = cv.design
     theme_options: ClassicThemeOptions = cv.design.options
